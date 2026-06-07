@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Transporte Aéreo</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background:linear-gradient(to top,#dff6ff,#87ceeb);
+}
+
+/* CONTENEDOR */
+.contenedor{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  flex-direction:column;
+}
+
+/* TARJETA */
+.card{
+  background:white;
+  padding:30px;
+  border-radius:25px;
+  box-shadow:0 15px 30px rgba(0,0,0,0.2);
+  text-align:center;
+  animation:fade 0.5s ease;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:translateY(20px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+.seccion{display:none}
+
+/* MENU */
+.menu-img{
+  width:130px;
+  margin:15px;
+  border-radius:20px;
+  cursor:pointer;
+  transition:0.4s;
+}
+.menu-img:hover{
+  transform:scale(1.15) rotate(2deg);
+}
+
+/* IMÁGENES */
+.img{
+  width:260px;
+  margin:10px;
+  border-radius:20px;
+  cursor:pointer;
+  transition:0.4s;
+}
+.img:hover{
+  transform:scale(1.08);
+}
+
+/* BOTÓN */
+button{
+  margin-top:20px;
+  padding:12px 25px;
+  background:linear-gradient(45deg,#0077b6,#00b4d8);
+  color:white;
+  border:none;
+  border-radius:15px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+button:hover{
+  transform:scale(1.1);
+  background:linear-gradient(45deg,#023e8a,#0096c7);
+}
+
+h1{
+  color:#023e8a;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div id="menu" class="contenedor">
+  <div class="card">
+    <h1>✈️🚁 MENÚ AÉREO</h1>
+
+    <img class="menu-img" src="avion1.jpg" onclick="mostrar('aviones')">
+    <p>Aviones</p>
+
+    <img class="menu-img" src="helicoptero1.jpg" onclick="mostrar('heli')">
+    <p>Helicópteros</p>
+  </div>
+</div>
+
+<!-- AVIONES -->
+<div id="aviones" class="contenedor seccion">
+  <div class="card">
+    <h1>✈️ Aviones</h1>
+
+    <p>Los aviones vuelan a grandes alturas y conectan el mundo rápidamente.</p>
+
+    <img class="img" src="avion1.jpg" onclick="volver()">
+    <img class="img" src="avion2.jpg" onclick="volver()">
+
+    <video class="img" controls>
+      <source src="https://www.w3schools.com/html/movie.mp4">
+    </video>
+
+    <button onclick="volver()">Menú</button>
+  </div>
+</div>
+
+<!-- HELICOPTEROS -->
+<div id="heli" class="contenedor seccion">
+  <div class="card">
+    <h1>🚁 Helicópteros</h1>
+
+    <p>Pueden despegar verticalmente y llegar a lugares difíciles.</p>
+
+    <img class="img" src="helicoptero1.jpg" onclick="volver()">
+    <img class="img" src="helicoptero2.jpg" onclick="volver()">
+
+    <video class="img" controls>
+      <source src="https://www.w3schools.com/html/movie.mp4">
+    </video>
+
+    <button onclick="volver()">Menú</button>
+  </div>
+</div>
+
+<script>
+function mostrar(x){
+  document.getElementById("menu").style.display="none";
+  document.getElementById("aviones").style.display="none";
+  document.getElementById("heli").style.display="none";
+  document.getElementById(x).style.display="flex";
+}
+
+function volver(){
+  document.getElementById("menu").style.display="flex";
+  document.getElementById("aviones").style.display="none";
+  document.getElementById("heli").style.display="none";
+}
+</script>
+
+</body>
+</html>
